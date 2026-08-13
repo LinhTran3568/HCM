@@ -6,6 +6,7 @@ import { Reveal } from '../components/Reveal'
 import { Parallax } from '../components/Parallax'
 import { ZoomOnScroll } from '../components/ZoomOnScroll'
 import { SectionDivider } from '../components/SectionDivider'
+import { BgReveal } from '../components/BgReveal'
 
 const easeOut = [0.16, 1, 0.3, 1] as const
 
@@ -21,7 +22,7 @@ export function GiaoTrinh() {
       aria-label="Căn cứ lý luận từ giáo trình"
     >
       {/* Background Image Layer */}
-      <div className="section-bg-image-layer" aria-hidden="true">
+      <BgReveal>
         <Parallax className="parallax-bg-layer" zoom={1.24}>
           <div
             className="section-bg-photo"
@@ -31,7 +32,7 @@ export function GiaoTrinh() {
         <div className="section-bg-dark-veil" />
         <SectionDivider />
         <div className="section-bottom-fade" />
-      </div>
+      </BgReveal>
 
       <div className="container relative-z">
         <div className="giaotrinh-header">

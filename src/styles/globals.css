@@ -120,6 +120,23 @@ h1, h2, h3, h4 {
   backdrop-filter: blur(1px);
 }
 
+/* Glowing gold ring that ripples outward with the background bloom reveal. */
+.bg-bloom-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid rgba(197, 148, 39, 0.85);
+  box-shadow:
+    0 0 34px 8px rgba(197, 148, 39, 0.35),
+    inset 0 0 20px rgba(197, 148, 39, 0.15);
+  pointer-events: none;
+  z-index: 2;
+  will-change: transform, opacity;
+}
+
 /* Softens the bottom of each section's background photo into the cream page
    below, so the seam onto the next section's divider is a gentle blend. */
 .section-bottom-fade {

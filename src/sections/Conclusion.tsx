@@ -4,6 +4,7 @@ import { SectionLabel } from '../components/SectionLabel'
 import { Reveal } from '../components/Reveal'
 import { Parallax } from '../components/Parallax'
 import { SectionDivider } from '../components/SectionDivider'
+import { BgReveal } from '../components/BgReveal'
 
 const easeOut = [0.16, 1, 0.3, 1] as const
 
@@ -17,7 +18,7 @@ export function Conclusion() {
       aria-label="Kết luận"
     >
       {/* Background Image Layer */}
-      <div className="section-bg-image-layer" aria-hidden="true">
+      <BgReveal>
         <Parallax className="parallax-bg-layer" zoom={1.24}>
           <div
             className="section-bg-photo"
@@ -27,7 +28,7 @@ export function Conclusion() {
         <div className="section-bg-dark-veil" />
         <SectionDivider />
         <div className="section-bottom-fade" />
-      </div>
+      </BgReveal>
 
       <div className="container relative-z">
         <div className="conclusion-content">

@@ -4,6 +4,7 @@ import { SectionLabel } from '../components/SectionLabel'
 import { Reveal } from '../components/Reveal'
 import { Parallax } from '../components/Parallax'
 import { SectionDivider } from '../components/SectionDivider'
+import { BgReveal } from '../components/BgReveal'
 
 const easeOut = [0.16, 1, 0.3, 1] as const
 
@@ -13,7 +14,7 @@ export function ChuHieu() {
   return (
     <section id={SECTION_IDS.chuHieu} className="section-chuhieu book-page-section" aria-label="Chữ hiếu, hai cách hiểu">
       {/* Illustrated Background Image */}
-      <div className="section-bg-image-layer" aria-hidden="true">
+      <BgReveal>
         <Parallax className="parallax-bg-layer" zoom={1.24}>
           <div
             className="section-bg-photo"
@@ -23,7 +24,7 @@ export function ChuHieu() {
         <div className="section-bg-parchment-veil" />
         <SectionDivider />
         <div className="section-bottom-fade" />
-      </div>
+      </BgReveal>
 
       <div className="container relative-z">
         <div className="chuhieu-header">

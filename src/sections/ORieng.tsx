@@ -5,6 +5,7 @@ import { Reveal } from '../components/Reveal'
 import { Parallax } from '../components/Parallax'
 import { ZoomOnScroll } from '../components/ZoomOnScroll'
 import { SectionDivider } from '../components/SectionDivider'
+import { BgReveal } from '../components/BgReveal'
 
 const easeOut = [0.16, 1, 0.3, 1] as const
 
@@ -14,7 +15,7 @@ export function ORieng() {
   return (
     <section id={SECTION_IDS.oRieng} className="section-orieng book-page-section" aria-label="Ở riêng nhưng không sống riêng">
       {/* Background Image Layer */}
-      <div className="section-bg-image-layer" aria-hidden="true">
+      <BgReveal>
         <Parallax className="parallax-bg-layer" zoom={1.24}>
           <div
             className="section-bg-photo"
@@ -24,7 +25,7 @@ export function ORieng() {
         <div className="section-bg-parchment-veil" />
         <SectionDivider />
         <div className="section-bottom-fade" />
-      </div>
+      </BgReveal>
 
       <div className="container relative-z">
         {/* WOW Headline */}
