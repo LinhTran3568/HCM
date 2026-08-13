@@ -93,6 +93,9 @@ export type GiaoTrinhCard = {
   no: string
   title: string
   src: string
+  image: string
+  imageAlt: string
+  imageCaption: string
   quote: string
   apply: string
   isKey?: boolean
@@ -105,16 +108,6 @@ export const GIAO_TRINH = {
   introTitle: 'Tư tưởng Hồ Chí Minh về văn hóa, đạo đức, con người',
   introP:
     'Giáo trình không trực tiếp bàn về "gia đình hạt nhân", nhưng các quan điểm về con người, gia đình — tế bào của xã hội và nếp sống mới chính là cơ sở lý luận vững chắc để soi chiếu tình huống của Lan.',
-  portrait: {
-    src: '/images/bac-ho-chan-dung.jpg',
-    alt: 'Chân dung Chủ tịch Hồ Chí Minh',
-    caption: 'Ảnh tư liệu — Chân dung Chủ tịch Hồ Chí Minh (Wikimedia Commons, public domain)',
-  },
-  accentImg: {
-    src: '/images/bac-ho-thieu-nhi.jpg',
-    alt: 'Bác Hồ bên thiếu nhi',
-    caption: 'Ảnh tư liệu — Bác Hồ bên thiếu nhi (Wikimedia Commons, public domain)',
-  },
   tabs: [
     { num: '01', label: 'CON NGƯỜI' },
     { num: '02', label: 'GIA ĐÌNH' },
@@ -125,6 +118,9 @@ export const GIAO_TRINH = {
       no: 'Luận điểm 1',
       title: 'Con người là mục tiêu và động lực của cách mạng',
       src: 'tr.152 – 153',
+      image: '/images/bac-ho-chan-dung.jpg',
+      imageAlt: 'Chân dung Chủ tịch Hồ Chí Minh (1946)',
+      imageCaption: 'Ảnh tư liệu — Chân dung Chủ tịch Hồ Chí Minh (1946) (Wikimedia Commons, public domain)',
       quote:
         '"Con người phải được đặt vào vị trí trung tâm của sự phát triển, nhằm phát huy cao nhất mọi tiềm năng của con người." (tr.154) · "Vì lợi ích mười năm thì phải trồng cây / Vì lợi ích trăm năm thì phải trồng người." (tr.154)',
       apply:
@@ -134,6 +130,9 @@ export const GIAO_TRINH = {
       no: 'Luận điểm 2',
       title: 'Gia đình là "tế bào của xã hội"',
       src: 'tr.140',
+      image: '/images/bac-ho-thieu-nhi.jpg',
+      imageAlt: 'Bác Hồ giao lưu với thiếu nhi',
+      imageCaption: 'Ảnh tư liệu — Bác Hồ giao lưu thiếu nhi, thập niên 1950 (Wikimedia Commons, public domain)',
       quote: '"...phải được bắt đầu từ mỗi con người, mỗi gia đình với tư cách là tế bào của xã hội."',
       apply:
         'Dù ở chung hay ở riêng, điều quan trọng là quan hệ vợ chồng có tốt không, có trách nhiệm với cha mẹ không, có giáo dục con cái tốt không, có giữ được sự gắn kết giữa các thế hệ không.',
@@ -142,6 +141,9 @@ export const GIAO_TRINH = {
       no: 'Luận điểm 3',
       title: 'Nếp sống mới phải kế thừa truyền thống và tiếp thu cái mới',
       src: 'tr.140',
+      image: '/images/bac-ho-bong-da.jpg',
+      imageAlt: 'Bác Hồ xem bóng đá tại sân vận động Hàng Đẫy, Hà Nội (1958)',
+      imageCaption: 'Ảnh tư liệu — Bác Hồ xem bóng đá tại Hà Nội, nếp sống văn hóa – thể thao (1958) (Wikimedia Commons, public domain)',
       quote:
         '"Nếp sống mới phải kế thừa những truyền thống tốt đẹp, những thuần phong mỹ tục lâu đời của nhân dân ta. Cái gì cũ mà xấu thì bỏ. Cái gì cũ mà không xấu thì phải sửa đổi cho hợp lý. Cái gì cũ mà tốt thì phát triển thêm. Cái gì mới mà hay thì phải làm, phải bổ sung."',
       apply:
@@ -292,7 +294,7 @@ export const REFERENCES = {
     'Ảnh "Bộ ấm trà Việt Nam" (Tonbi ko, CC BY-SA 4.0) — Wikimedia Commons.',
     'Ảnh "Nhà cổ Tấn Ký, Hội An" (P. Hughes, CC BY 4.0) — Wikimedia Commons.',
     'Ảnh "Hoa sen" (Hong Zhang, CC0) và "Cánh đồng lúa chín" (Basile Morin, CC BY-SA 4.0) — Wikimedia Commons.',
-    'Ảnh tư liệu Chủ tịch Hồ Chí Minh (1946) và Bác Hồ bên thiếu nhi — Wikimedia Commons (Public domain).',
+    'Ảnh tư liệu Chủ tịch Hồ Chí Minh: chân dung (1946), Bác Hồ giao lưu thiếu nhi (thập niên 1950) và Bác Hồ xem bóng đá tại Hà Nội (1958) — Wikimedia Commons (Public domain).',
   ],
 }
 

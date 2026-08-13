@@ -81,14 +81,21 @@ export function GiaoTrinh() {
 
           <div className="giaotrinh-portrait-column">
             <ZoomOnScroll className="large-portrait-frame book-card-frame" zoom={1.08}>
-              <img
-                src={GIAO_TRINH.portrait.src}
-                alt={GIAO_TRINH.portrait.alt}
-                className="portrait-main-img"
-                loading="lazy"
-              />
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.img
+                  key={currentCard.image}
+                  src={currentCard.image}
+                  alt={currentCard.imageAlt}
+                  className="portrait-main-img"
+                  loading="lazy"
+                  initial={reduce ? false : { opacity: 0, scale: 1.06 }}
+                  animate={reduce ? undefined : { opacity: 1, scale: 1 }}
+                  exit={reduce ? undefined : { opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.45, ease: easeOut }}
+                />
+              </AnimatePresence>
               <div className="portrait-caption-overlay">
-                <span>{GIAO_TRINH.portrait.caption}</span>
+                <span>{currentCard.imageCaption}</span>
               </div>
             </ZoomOnScroll>
           </div>
