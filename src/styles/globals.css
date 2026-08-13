@@ -876,12 +876,15 @@ h1, h2, h3, h4 {
 
 .thesis-flow-step:nth-child(even) .thesis-step-card {
   grid-column: 3;
-  text-align: left;
 }
 
 .thesis-flow-step:nth-child(odd) .thesis-step-card {
   grid-column: 1;
-  text-align: right;
+}
+
+.thesis-flow-step .thesis-step-card {
+  text-align: center;
+  justify-self: center;
 }
 
 .thesis-step-connector {
@@ -1996,6 +1999,7 @@ h1, h2, h3, h4 {
   .thesis-flow-step:nth-child(even) .thesis-step-card {
     grid-column: 2;
     text-align: left;
+    justify-self: stretch;
   }
   .thesis-step-connector {
     grid-column: 1;
