@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const CARD_SELECTOR = '.book-card-frame'
+const CARD_SELECTOR = '.book-card-frame, .hero-scene-box'
 const MAX_TILT = 6
 const HOVER_TRANSITION = 'transform 0.12s ease-out'
 const RESET_TRANSITION = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
