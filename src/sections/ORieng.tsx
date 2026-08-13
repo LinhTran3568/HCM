@@ -9,8 +9,17 @@ export function ORieng() {
   const reduce = useReducedMotion()
 
   return (
-    <section id={SECTION_IDS.oRieng} className="section-orieng" aria-label="Ở riêng nhưng không sống riêng">
-      <div className="container">
+    <section id={SECTION_IDS.oRieng} className="section-orieng book-page-section" aria-label="Ở riêng nhưng không sống riêng">
+      {/* Background Image Layer */}
+      <div className="section-bg-image-layer" aria-hidden="true">
+        <div
+          className="section-bg-photo"
+          style={{ backgroundImage: `url('/images/hoa-sen.jpg')` }}
+        />
+        <div className="section-bg-parchment-veil" />
+      </div>
+
+      <div className="container relative-z">
         {/* WOW Headline */}
         <div className="orieng-header">
           <Reveal>
@@ -39,7 +48,7 @@ export function ORieng() {
               {O_RIENG.poles.left.map((item, i) => (
                 <motion.li
                   key={item.title}
-                  className="wing-item"
+                  className="wing-item book-card-frame"
                   initial={reduce ? false : { opacity: 0, x: -20 }}
                   whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.5 }}
@@ -104,7 +113,7 @@ export function ORieng() {
               {O_RIENG.poles.right.map((item, i) => (
                 <motion.li
                   key={item.title}
-                  className="wing-item"
+                  className="wing-item book-card-frame"
                   initial={reduce ? false : { opacity: 0, x: 20 }}
                   whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.5 }}
@@ -118,7 +127,7 @@ export function ORieng() {
           </div>
         </div>
 
-        {/* Sequential Reveal of 6 Principles (Editorial Grid List) */}
+        {/* Sequential Reveal of 6 Principles */}
         <div className="six-principles-section">
           <Reveal as="h3" className="principles-section-title">
             SÁU NGUYÊN TẮC CỦA NẾP NHÀ MỚI
@@ -128,7 +137,7 @@ export function ORieng() {
             {O_RIENG.values.map((value, i) => (
               <motion.div
                 key={value.num}
-                className="principle-row-item"
+                className="principle-row-item book-card-frame"
                 initial={reduce ? false : { opacity: 0, y: 24 }}
                 whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.5 }}

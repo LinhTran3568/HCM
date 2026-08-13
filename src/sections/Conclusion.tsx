@@ -11,10 +11,19 @@ export function Conclusion() {
   return (
     <section
       id={SECTION_IDS.conclusion}
-      className="section-conclusion dark-viewport"
+      className="section-conclusion dark-viewport book-page-section"
       aria-label="Kết luận"
     >
-      <div className="container">
+      {/* Background Image Layer */}
+      <div className="section-bg-image-layer" aria-hidden="true">
+        <div
+          className="section-bg-photo"
+          style={{ backgroundImage: `url('/images/footer-bg.jpg')` }}
+        />
+        <div className="section-bg-dark-veil" />
+      </div>
+
+      <div className="container relative-z">
         <div className="conclusion-content">
           <Reveal>
             <SectionLabel num={CONCLUSION.num} tone="invert">
@@ -52,7 +61,7 @@ export function Conclusion() {
 
           {/* Final Documentary Reveal Tag */}
           <motion.div
-            className="final-documentary-reveal"
+            className="final-documentary-reveal book-card-frame"
             initial={reduce ? false : { opacity: 0, scale: 0.94 }}
             whileInView={reduce ? undefined : { opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.8 }}

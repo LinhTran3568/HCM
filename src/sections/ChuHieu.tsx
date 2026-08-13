@@ -4,8 +4,17 @@ import { Reveal } from '../components/Reveal'
 
 export function ChuHieu() {
   return (
-    <section id={SECTION_IDS.chuHieu} className="section-chuhieu" aria-label="Chữ hiếu, hai cách hiểu">
-      <div className="container">
+    <section id={SECTION_IDS.chuHieu} className="section-chuhieu book-page-section" aria-label="Chữ hiếu, hai cách hiểu">
+      {/* Illustrated Background Image */}
+      <div className="section-bg-image-layer" aria-hidden="true">
+        <div
+          className="section-bg-photo"
+          style={{ backgroundImage: `url('/images/nha-tan-ky.jpg')` }}
+        />
+        <div className="section-bg-parchment-veil" />
+      </div>
+
+      <div className="container relative-z">
         <div className="chuhieu-header">
           <Reveal>
             <SectionLabel num={CHU_HIEU.num}>{CHU_HIEU.kicker}</SectionLabel>
@@ -24,7 +33,7 @@ export function ChuHieu() {
           </div>
 
           {/* Left Panel: Truyền Thống */}
-          <article className="comparison-panel comparison-panel--tradition">
+          <article className="comparison-panel comparison-panel--tradition book-card-frame">
             <div className="panel-image-container">
               <img
                 src={CHU_HIEU.trad.image}
@@ -59,7 +68,7 @@ export function ChuHieu() {
           </article>
 
           {/* Right Panel: Hiện Đại */}
-          <article className="comparison-panel comparison-panel--modern">
+          <article className="comparison-panel comparison-panel--modern book-card-frame">
             <div className="panel-image-container">
               <img
                 src={CHU_HIEU.modern.image}
@@ -97,7 +106,7 @@ export function ChuHieu() {
         </div>
 
         {/* Big Editorial Quote Statement */}
-        <div className="chuhieu-editorial-quote">
+        <div className="chuhieu-editorial-quote book-card-frame">
           <blockquote className="quote-text">
             “{CHU_HIEU.pullquote}”
           </blockquote>

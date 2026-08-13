@@ -9,8 +9,17 @@ export function Thesis() {
   const reduce = useReducedMotion()
 
   return (
-    <section id={SECTION_IDS.thesis} className="section-thesis" aria-label="Luận điểm chính">
-      <div className="container">
+    <section id={SECTION_IDS.thesis} className="section-thesis book-page-section" aria-label="Luận điểm chính">
+      {/* Illustrated Background Image */}
+      <div className="section-bg-image-layer" aria-hidden="true">
+        <div
+          className="section-bg-photo"
+          style={{ backgroundImage: `url('/images/ruong-lua.jpg')` }}
+        />
+        <div className="section-bg-parchment-veil" />
+      </div>
+
+      <div className="container relative-z">
         <div className="thesis-header">
           <Reveal>
             <SectionLabel num={THESIS.num}>{THESIS.kicker}</SectionLabel>
@@ -52,7 +61,7 @@ export function Thesis() {
                   <span className="thesis-step-num">{item.num}</span>
                   <div className="thesis-step-dot" />
                 </div>
-                <div className="thesis-step-card">
+                <div className="thesis-step-card book-card-frame">
                   <h3 className="thesis-step-label">{item.label}</h3>
                   <p className="thesis-step-desc">{item.desc}</p>
                 </div>

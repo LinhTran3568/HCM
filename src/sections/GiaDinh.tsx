@@ -9,8 +9,17 @@ export function GiaDinh() {
   const reduce = useReducedMotion()
 
   return (
-    <section id={SECTION_IDS.giaDinh} className="section-giadinh" aria-label="Truyền thống đến hạt nhân">
-      <div className="container">
+    <section id={SECTION_IDS.giaDinh} className="section-giadinh book-page-section" aria-label="Truyền thống đến hạt nhân">
+      {/* Background Image Layer */}
+      <div className="section-bg-image-layer" aria-hidden="true">
+        <div
+          className="section-bg-photo"
+          style={{ backgroundImage: `url('/images/part3-bg.jpg')` }}
+        />
+        <div className="section-bg-parchment-veil" />
+      </div>
+
+      <div className="container relative-z">
         <div className="giadinh-header">
           <Reveal>
             <SectionLabel num={GIA_DINH.num}>{GIA_DINH.kicker}</SectionLabel>
@@ -25,13 +34,13 @@ export function GiaDinh() {
           </Reveal>
         </div>
 
-        {/* Major Visual Transformation Flow: Truyền Thống ↓ Hạt Nhân ↓ Giá Trị Cốt Lõi */}
+        {/* Major Visual Transformation Flow */}
         <div className="transformation-hero-flow">
           <div className="transform-nodes-grid">
             {GIA_DINH.timeline.map((node, i) => (
               <motion.div
                 key={node.num}
-                className="transform-node-card"
+                className="transform-node-card book-card-frame"
                 initial={reduce ? false : { opacity: 0, y: 30 }}
                 whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
@@ -49,7 +58,7 @@ export function GiaDinh() {
             ))}
           </div>
 
-          <div className="core-values-bar">
+          <div className="core-values-bar book-card-frame">
             <span className="core-values-label">GIÁ TRỊ VẪN ĐƯỢC GIỮ VỮNG:</span>
             <div className="core-values-pills">
               {GIA_DINH.timelineValues.map((val) => (
@@ -64,7 +73,7 @@ export function GiaDinh() {
         {/* Pros and Cons Comparison */}
         <div className="uv-comparison-grid">
           {GIA_DINH.uv.map((col, i) => (
-            <Reveal key={col.name} className="uv-card-panel" delay={i * 120}>
+            <Reveal key={col.name} className="uv-card-panel book-card-frame" delay={i * 120}>
               <h3 className="uv-panel-name">{col.name}</h3>
               <div className="uv-group-box">
                 <h4 className="uv-heading uv-heading--good">ƯU ĐIỂM</h4>
@@ -93,7 +102,7 @@ export function GiaDinh() {
         </div>
 
         {/* Revealed Data Table Supporting Evidence */}
-        <div className="supporting-data-table-wrap">
+        <div className="supporting-data-table-wrap book-card-frame">
           <div className="table-caption-bar">
             <h3>DỮ LIỆU ĐỐI CHIẾU CHỨC NĂNG GIA ĐÌNH</h3>
             <p>Bảng tổng hợp chức năng duy trì giữa hai hình thức gia đình</p>

@@ -14,10 +14,19 @@ export function GiaoTrinh() {
   return (
     <section
       id={SECTION_IDS.giaoTrinh}
-      className="section-giaotrinh dark-viewport"
+      className="section-giaotrinh dark-viewport book-page-section"
       aria-label="Căn cứ lý luận từ giáo trình"
     >
-      <div className="container">
+      {/* Background Image Layer */}
+      <div className="section-bg-image-layer" aria-hidden="true">
+        <div
+          className="section-bg-photo"
+          style={{ backgroundImage: `url('/images/am-tra.jpg')` }}
+        />
+        <div className="section-bg-dark-veil" />
+      </div>
+
+      <div className="container relative-z">
         <div className="giaotrinh-header">
           <Reveal>
             <SectionLabel num={GIAO_TRINH.num} tone="invert">
@@ -63,7 +72,7 @@ export function GiaoTrinh() {
         {/* Main Academic Layout: Large Portrait + BIG Quote Focus */}
         <div className="giaotrinh-stage">
           <div className="giaotrinh-portrait-column">
-            <div className="large-portrait-frame">
+            <div className="large-portrait-frame book-card-frame">
               <img
                 src={GIAO_TRINH.portrait.src}
                 alt={GIAO_TRINH.portrait.alt}
@@ -93,7 +102,7 @@ export function GiaoTrinh() {
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={active}
-                className="quote-display-card"
+                className="quote-display-card book-card-frame"
                 initial={reduce ? false : { opacity: 0, scale: 0.98, y: 12 }}
                 animate={reduce ? undefined : { opacity: 1, scale: 1, y: 0 }}
                 exit={reduce ? undefined : { opacity: 0, scale: 0.98, y: -12 }}
