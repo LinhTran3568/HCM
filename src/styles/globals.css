@@ -120,6 +120,37 @@ h1, h2, h3, h4 {
   backdrop-filter: blur(1px);
 }
 
+/* Softens the bottom of each section's background photo into the cream page
+   below, so the seam onto the next section's divider is a gentle blend. */
+.section-bottom-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 56px;
+  background: linear-gradient(180deg, rgba(250, 246, 238, 0) 0%, var(--cream) 100%);
+  z-index: 1;
+}
+
+/* ─── Decorative Section Divider (clouds + hanging tassels) ───── */
+.section-divider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  overflow: hidden;
+}
+
+.divider-clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  display: block;
+}
+
 /* Translucent Dark Overlay (For Section 04 & 07) */
 .section-bg-dark-veil {
   position: absolute;

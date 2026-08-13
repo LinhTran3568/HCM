@@ -33,6 +33,7 @@ export function Hero() {
           transition={{ duration: 2.2, ease: easeOut }}
         />
         <div className="hero-overlay" />
+        <div className="section-bottom-fade" />
       </div>
 
       <motion.div

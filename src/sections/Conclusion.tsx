@@ -3,6 +3,7 @@ import { CONCLUSION, SECTION_IDS } from '../data/content'
 import { SectionLabel } from '../components/SectionLabel'
 import { Reveal } from '../components/Reveal'
 import { Parallax } from '../components/Parallax'
+import { SectionDivider } from '../components/SectionDivider'
 
 const easeOut = [0.16, 1, 0.3, 1] as const
 
@@ -24,6 +25,8 @@ export function Conclusion() {
           />
         </Parallax>
         <div className="section-bg-dark-veil" />
+        <SectionDivider />
+        <div className="section-bottom-fade" />
       </div>
 
       <div className="container relative-z">
