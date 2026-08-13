@@ -1,4 +1,7 @@
 import { useId } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
+
+const easeOut = [0.16, 1, 0.3, 1] as const
 
 const CLOUD_W = 1440
 
@@ -25,9 +28,17 @@ function buildCloudsPath() {
  */
 export function SectionDivider() {
   const gradId = `divider-cloud-${useId().replace(/:/g, '')}`
+  const reduce = useReducedMotion()
 
   return (
-    <div className="section-divider" aria-hidden="true">
+    <motion.div
+      className="section-divider"
+      aria-hidden="true"
+      initial={reduce ? false : { opacity: 0, y: -14 }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.6 }}
+      transition={{ duration: 0.9, ease: easeOut }}
+    >
       <svg
         className="divider-clouds"
         viewBox={`0 0 ${CLOUD_W} 90`}
@@ -42,6 +53,6 @@ export function SectionDivider() {
         </defs>
         <path d={buildCloudsPath()} fill={`url(#${gradId})`} />
       </svg>
-    </div>
+    </motion.div>
   )
 }

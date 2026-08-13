@@ -28,7 +28,10 @@ export function Parallax({ children, className = '', drift = 14, zoom }: Paralla
   // Background lag: at the start of the pass the layer is pulled up slightly,
   // at the end pushed down, so it crosses the viewport slower than the page.
   const y = useTransform(scrollYProgress, [0, 1], [`-${drift}%`, `${drift}%`])
-  const scale = useTransform(scrollYProgress, [0, 1], [zoom ?? 1, 1])
+  // Entry-weighted zoom: the photo starts most zoomed in as the section
+  // arrives and settles to its natural size halfway through — a cinematic
+  // push-in whenever a new background enters.
+  const scale = useTransform(scrollYProgress, [0, 0.55], [zoom ?? 1, 1])
 
   return (
     <div ref={ref} className={className}>

@@ -18,7 +18,7 @@ export function Conclusion() {
     >
       {/* Background Image Layer */}
       <div className="section-bg-image-layer" aria-hidden="true">
-        <Parallax className="parallax-bg-layer" zoom={1.18}>
+        <Parallax className="parallax-bg-layer" zoom={1.24}>
           <div
             className="section-bg-photo"
             style={{ backgroundImage: `url('/images/footer-bg.jpg')` }}

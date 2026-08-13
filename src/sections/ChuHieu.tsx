@@ -14,7 +14,7 @@ export function ChuHieu() {
     <section id={SECTION_IDS.chuHieu} className="section-chuhieu book-page-section" aria-label="Chữ hiếu, hai cách hiểu">
       {/* Illustrated Background Image */}
       <div className="section-bg-image-layer" aria-hidden="true">
-        <Parallax className="parallax-bg-layer" zoom={1.18}>
+        <Parallax className="parallax-bg-layer" zoom={1.24}>
           <div
             className="section-bg-photo"
             style={{ backgroundImage: `url('/images/nha-tan-ky.jpg')` }}

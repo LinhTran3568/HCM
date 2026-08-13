@@ -145,10 +145,16 @@ h1, h2, h3, h4 {
 .divider-clouds {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: -5%;
+  width: 110%;
   height: 90px;
   display: block;
+  animation: cloud-drift 22s ease-in-out infinite alternate;
+}
+
+@keyframes cloud-drift {
+  from { transform: translateX(-0.8%); }
+  to   { transform: translateX(0.8%); }
 }
 
 /* Translucent Dark Overlay (For Section 04 & 07) */
