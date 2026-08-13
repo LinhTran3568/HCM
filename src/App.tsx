@@ -2,6 +2,7 @@ import { Navbar } from './components/Navbar'
 import { BackToTop } from './components/BackToTop'
 import { LotusPetalsCanvas } from './components/LotusPetalsCanvas'
 import { RippleCanvas } from './components/RippleCanvas'
+import { CardTiltEffect } from './components/CardTiltEffect'
 import { Hero } from './sections/Hero'
 import { Thesis } from './sections/Thesis'
 import { ChuHieu } from './sections/ChuHieu'
@@ -16,6 +17,7 @@ function App() {
     <>
       <LotusPetalsCanvas />
       <RippleCanvas />
+      <CardTiltEffect />
       <Navbar />
       <BackToTop />
       <main>
