@@ -1595,8 +1595,8 @@ h1, h2, h3, h4 {
 }
 
 .principles-timeline-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
