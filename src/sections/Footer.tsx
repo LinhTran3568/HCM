@@ -1,27 +1,9 @@
-import { FOOTER, REFERENCES, SECTION_IDS } from '../data/content'
+import { FOOTER } from '../data/content'
 import { Reveal } from '../components/Reveal'
 
 export function Footer() {
   return (
     <>
-      <section id={SECTION_IDS.footer} className="refs" aria-label="Tài liệu tham khảo">
-        <div className="container">
-          <Reveal as="h2" className="refs-title">
-            {REFERENCES.label}
-          </Reveal>
-          <Reveal as="p" className="refs-note">
-            {REFERENCES.note}
-          </Reveal>
-          <Reveal>
-            <ul className="refs-list">
-              {REFERENCES.items.map((ref, i) => (
-                <li key={i}>{ref}</li>
-              ))}
-            </ul>
-          </Reveal>
-        </div>
-      </section>
-
       <footer className="footer" aria-label="Chân trang">
         <div className="container">
           <Reveal as="h2" className="footer-brand">
