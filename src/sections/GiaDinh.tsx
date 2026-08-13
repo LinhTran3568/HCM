@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { GIA_DINH, SECTION_IDS } from '../data/content'
 import { SectionLabel } from '../components/SectionLabel'
 import { Reveal } from '../components/Reveal'
+import { Parallax } from '../components/Parallax'
 
 const easeOut = [0.16, 1, 0.3, 1] as const
 
@@ -12,10 +13,12 @@ export function GiaDinh() {
     <section id={SECTION_IDS.giaDinh} className="section-giadinh book-page-section" aria-label="Truyền thống đến hạt nhân">
       {/* Background Image Layer */}
       <div className="section-bg-image-layer" aria-hidden="true">
-        <div
-          className="section-bg-photo"
-          style={{ backgroundImage: `url('/images/part3-bg.jpg')` }}
-        />
+        <Parallax className="parallax-bg-layer" zoom={1.18}>
+          <div
+            className="section-bg-photo"
+            style={{ backgroundImage: `url('/images/part3-bg.jpg')` }}
+          />
+        </Parallax>
         <div className="section-bg-parchment-veil" />
       </div>
 
@@ -102,7 +105,8 @@ export function GiaDinh() {
         </div>
 
         {/* Revealed Data Table Supporting Evidence */}
-        <div className="supporting-data-table-wrap book-card-frame">
+        <Reveal as="div" className="supporting-data-table-wrap book-card-frame" y={40}>
+
           <div className="table-caption-bar">
             <h3>DỮ LIỆU ĐỐI CHIẾU CHỨC NĂNG GIA ĐÌNH</h3>
             <p>Bảng tổng hợp chức năng duy trì giữa hai hình thức gia đình</p>
@@ -138,7 +142,7 @@ export function GiaDinh() {
               {GIA_DINH.noteEnd}
             </p>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

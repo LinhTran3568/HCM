@@ -34,7 +34,6 @@ export const HERO = {
   ],
   image: '/images/hero-bg.jpg',
   imageAlt: 'Ruộng bậc thang Mù Cang Chải lúc sáng sớm',
-  imageCaption: 'Ruộng bậc thang Mù Cang Chải (Viethavvh, Public domain) — Wikimedia Commons',
 }
 
 export const THESIS = {

@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 import { ArrowDown } from 'lucide-react'
 import { HERO, SECTION_IDS } from '../data/content'
 import { scrollToSection } from '../lib/scroll'
@@ -7,9 +8,22 @@ const easeOut = [0.16, 1, 0.3, 1] as const
 
 export function Hero() {
   const reduce = useReducedMotion()
+  const heroRef = useRef<HTMLElement>(null)
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  })
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, -140])
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0])
 
   return (
-    <section id={SECTION_IDS.hero} className="hero" aria-label="Mở đầu câu chuyện">
+    <section
+      ref={heroRef}
+      id={SECTION_IDS.hero}
+      className="hero"
+      aria-label="Mở đầu câu chuyện"
+    >
       <div className="hero-bg" aria-hidden="true">
         <motion.div
           className="hero-photo"
@@ -21,7 +35,10 @@ export function Hero() {
         <div className="hero-overlay" />
       </div>
 
-      <div className="hero-container">
+      <motion.div
+        className="hero-container"
+        style={reduce ? undefined : { y: heroY, opacity: heroOpacity }}
+      >
         <div className="hero-left-column">
           <motion.div
             className="hero-badge"
@@ -114,19 +131,21 @@ export function Hero() {
             </ul>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="hero-footer-bar">
-        <span className="hero-caption-text">{HERO.imageCaption}</span>
+      <motion.div
+        className="hero-footer-bar"
+        style={reduce ? undefined : { opacity: heroOpacity }}
+      >
         <button
           type="button"
           className="hero-scroll-trigger"
           onClick={() => scrollToSection(SECTION_IDS.thesis)}
         >
           <span>CUỘN ĐỂ KHÁM PHÁ</span>
-          <ArrowDown size={14} />
+          <ArrowDown size={14} className="scroll-cue-arrow" />
         </button>
-      </div>
+      </motion.div>
     </section>
   )
 }

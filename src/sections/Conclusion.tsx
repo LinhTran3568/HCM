@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { CONCLUSION, SECTION_IDS } from '../data/content'
 import { SectionLabel } from '../components/SectionLabel'
 import { Reveal } from '../components/Reveal'
+import { Parallax } from '../components/Parallax'
 
 const easeOut = [0.16, 1, 0.3, 1] as const
 
@@ -16,10 +17,12 @@ export function Conclusion() {
     >
       {/* Background Image Layer */}
       <div className="section-bg-image-layer" aria-hidden="true">
-        <div
-          className="section-bg-photo"
-          style={{ backgroundImage: `url('/images/footer-bg.jpg')` }}
-        />
+        <Parallax className="parallax-bg-layer" zoom={1.18}>
+          <div
+            className="section-bg-photo"
+            style={{ backgroundImage: `url('/images/footer-bg.jpg')` }}
+          />
+        </Parallax>
         <div className="section-bg-dark-veil" />
       </div>
 

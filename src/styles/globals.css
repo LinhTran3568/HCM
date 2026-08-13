@@ -93,6 +93,20 @@ h1, h2, h3, h4 {
   transition: transform 1.2s var(--ease-out);
 }
 
+/* Scroll parallax: the layer overscans the section so the photo can drift
+   without ever revealing a gap at the top or bottom edge. */
+.parallax-bg-layer {
+  position: absolute;
+  inset: -50% 0;
+  overflow: hidden;
+}
+
+.parallax-inner {
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
 /* Translucent Parchment Overlay (Makes background images pop!) */
 .section-bg-parchment-veil {
   position: absolute;
@@ -254,6 +268,33 @@ h1, h2, h3, h4 {
   z-index: 100;
   transform-origin: 0 50%;
   background: var(--terracotta);
+}
+
+/* ─── Back to Top Button ─────────────────────────────────────── */
+.back-to-top {
+  position: fixed;
+  right: clamp(16px, 3vw, 32px);
+  bottom: clamp(16px, 3vw, 32px);
+  z-index: 95;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(250, 246, 238, 0.92);
+  color: var(--terracotta);
+  box-shadow: 0 10px 28px rgba(20, 19, 17, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: color 0.3s var(--ease-out), border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+
+.back-to-top:hover {
+  color: var(--black);
+  border-color: var(--terracotta);
+  box-shadow: 0 14px 34px rgba(20, 19, 17, 0.28);
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -488,9 +529,10 @@ h1, h2, h3, h4 {
 }
 
 .hero-scene-box {
-  background: rgba(20, 19, 17, 0.55);
+  background: rgba(20, 19, 17, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   padding: 36px;
   border-radius: 6px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
@@ -552,6 +594,10 @@ h1, h2, h3, h4 {
 }
 
 .hero-scroll-trigger:hover { color: var(--white); }
+
+.scroll-cue-arrow {
+  animation: hint-bob 1.8s ease-in-out infinite;
+}
 
 /* ═══════════════════════════════════════════════════════════════
    SECTION 02 — THESIS (THE QUESTION)

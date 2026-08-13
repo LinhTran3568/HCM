@@ -2,6 +2,8 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { O_RIENG, SECTION_IDS } from '../data/content'
 import { SectionLabel } from '../components/SectionLabel'
 import { Reveal } from '../components/Reveal'
+import { Parallax } from '../components/Parallax'
+import { ZoomOnScroll } from '../components/ZoomOnScroll'
 
 const easeOut = [0.16, 1, 0.3, 1] as const
 
@@ -12,10 +14,12 @@ export function ORieng() {
     <section id={SECTION_IDS.oRieng} className="section-orieng book-page-section" aria-label="Ở riêng nhưng không sống riêng">
       {/* Background Image Layer */}
       <div className="section-bg-image-layer" aria-hidden="true">
-        <div
-          className="section-bg-photo"
-          style={{ backgroundImage: `url('/images/hoa-sen.jpg')` }}
-        />
+        <Parallax className="parallax-bg-layer" zoom={1.18}>
+          <div
+            className="section-bg-photo"
+            style={{ backgroundImage: `url('/images/hoa-sen.jpg')` }}
+          />
+        </Parallax>
         <div className="section-bg-parchment-veil" />
       </div>
 
@@ -94,7 +98,7 @@ export function ORieng() {
               />
             </svg>
 
-            <div className="center-photo-frame">
+            <ZoomOnScroll className="center-photo-frame" zoom={1.1}>
               <img
                 src={O_RIENG.poles.centerImage}
                 alt={O_RIENG.poles.centerImageAlt}
@@ -102,7 +106,7 @@ export function ORieng() {
                 loading="lazy"
               />
               <span className="center-photo-caption">{O_RIENG.poles.centerCaption}</span>
-            </div>
+            </ZoomOnScroll>
             <div className="center-heart-tag">SỢI DÂY TÌNH THÂN</div>
           </div>
 

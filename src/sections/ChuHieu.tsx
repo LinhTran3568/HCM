@@ -1,16 +1,24 @@
+import { motion, useReducedMotion } from 'framer-motion'
 import { CHU_HIEU, SECTION_IDS } from '../data/content'
 import { SectionLabel } from '../components/SectionLabel'
 import { Reveal } from '../components/Reveal'
+import { Parallax } from '../components/Parallax'
+
+const easeOut = [0.16, 1, 0.3, 1] as const
 
 export function ChuHieu() {
+  const reduce = useReducedMotion()
+
   return (
     <section id={SECTION_IDS.chuHieu} className="section-chuhieu book-page-section" aria-label="Chữ hiếu, hai cách hiểu">
       {/* Illustrated Background Image */}
       <div className="section-bg-image-layer" aria-hidden="true">
-        <div
-          className="section-bg-photo"
-          style={{ backgroundImage: `url('/images/nha-tan-ky.jpg')` }}
-        />
+        <Parallax className="parallax-bg-layer" zoom={1.18}>
+          <div
+            className="section-bg-photo"
+            style={{ backgroundImage: `url('/images/nha-tan-ky.jpg')` }}
+          />
+        </Parallax>
         <div className="section-bg-parchment-veil" />
       </div>
 
@@ -33,7 +41,13 @@ export function ChuHieu() {
           </div>
 
           {/* Left Panel: Truyền Thống */}
-          <article className="comparison-panel comparison-panel--tradition book-card-frame">
+          <motion.article
+            className="comparison-panel comparison-panel--tradition book-card-frame"
+            initial={reduce ? false : { opacity: 0, y: 40 }}
+            whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: easeOut }}
+          >
             <div className="panel-image-container">
               <img
                 src={CHU_HIEU.trad.image}
@@ -65,10 +79,16 @@ export function ChuHieu() {
                 </ul>
               </div>
             </div>
-          </article>
+          </motion.article>
 
           {/* Right Panel: Hiện Đại */}
-          <article className="comparison-panel comparison-panel--modern book-card-frame">
+          <motion.article
+            className="comparison-panel comparison-panel--modern book-card-frame"
+            initial={reduce ? false : { opacity: 0, y: 40 }}
+            whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.25, ease: easeOut }}
+          >
             <div className="panel-image-container">
               <img
                 src={CHU_HIEU.modern.image}
@@ -102,16 +122,17 @@ export function ChuHieu() {
                 </ul>
               </div>
             </div>
-          </article>
+          </motion.article>
         </div>
 
         {/* Big Editorial Quote Statement */}
-        <div className="chuhieu-editorial-quote book-card-frame">
+        <Reveal as="div" className="chuhieu-editorial-quote book-card-frame" delay={120} y={36}>
+
           <blockquote className="quote-text">
             “{CHU_HIEU.pullquote}”
           </blockquote>
           <cite className="quote-source">— {CHU_HIEU.pullquoteSrc}</cite>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

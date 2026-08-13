@@ -3,6 +3,8 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { GIAO_TRINH, SECTION_IDS } from '../data/content'
 import { SectionLabel } from '../components/SectionLabel'
 import { Reveal } from '../components/Reveal'
+import { Parallax } from '../components/Parallax'
+import { ZoomOnScroll } from '../components/ZoomOnScroll'
 
 const easeOut = [0.16, 1, 0.3, 1] as const
 
@@ -19,10 +21,12 @@ export function GiaoTrinh() {
     >
       {/* Background Image Layer */}
       <div className="section-bg-image-layer" aria-hidden="true">
-        <div
-          className="section-bg-photo"
-          style={{ backgroundImage: `url('/images/am-tra.jpg')` }}
-        />
+        <Parallax className="parallax-bg-layer" zoom={1.18}>
+          <div
+            className="section-bg-photo"
+            style={{ backgroundImage: `url('/images/am-tra.jpg')` }}
+          />
+        </Parallax>
         <div className="section-bg-dark-veil" />
       </div>
 
@@ -70,9 +74,10 @@ export function GiaoTrinh() {
         </div>
 
         {/* Main Academic Layout: Large Portrait + BIG Quote Focus */}
-        <div className="giaotrinh-stage">
+        <Reveal as="div" className="giaotrinh-stage" amount={0.15} y={44}>
+
           <div className="giaotrinh-portrait-column">
-            <div className="large-portrait-frame book-card-frame">
+            <ZoomOnScroll className="large-portrait-frame book-card-frame" zoom={1.08}>
               <img
                 src={GIAO_TRINH.portrait.src}
                 alt={GIAO_TRINH.portrait.alt}
@@ -82,7 +87,7 @@ export function GiaoTrinh() {
               <div className="portrait-caption-overlay">
                 <span>{GIAO_TRINH.portrait.caption}</span>
               </div>
-            </div>
+            </ZoomOnScroll>
             <div className="secondary-portrait-frame">
               <img
                 src={GIAO_TRINH.accentImg.src}
@@ -128,7 +133,7 @@ export function GiaoTrinh() {
               </motion.div>
             </AnimatePresence>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

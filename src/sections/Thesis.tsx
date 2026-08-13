@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { THESIS, SECTION_IDS } from '../data/content'
 import { SectionLabel } from '../components/SectionLabel'
 import { Reveal } from '../components/Reveal'
+import { Parallax } from '../components/Parallax'
 
 const easeOut = [0.16, 1, 0.3, 1] as const
 
@@ -12,10 +13,12 @@ export function Thesis() {
     <section id={SECTION_IDS.thesis} className="section-thesis book-page-section" aria-label="Luận điểm chính">
       {/* Illustrated Background Image */}
       <div className="section-bg-image-layer" aria-hidden="true">
-        <div
-          className="section-bg-photo"
-          style={{ backgroundImage: `url('/images/ruong-lua.jpg')` }}
-        />
+        <Parallax className="parallax-bg-layer" zoom={1.18}>
+          <div
+            className="section-bg-photo"
+            style={{ backgroundImage: `url('/images/ruong-lua.jpg')` }}
+          />
+        </Parallax>
         <div className="section-bg-parchment-veil" />
       </div>
 
