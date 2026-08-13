@@ -91,14 +91,6 @@ export function GiaoTrinh() {
                 <span>{GIAO_TRINH.portrait.caption}</span>
               </div>
             </ZoomOnScroll>
-            <div className="secondary-portrait-frame">
-              <img
-                src={GIAO_TRINH.accentImg.src}
-                alt={GIAO_TRINH.accentImg.alt}
-                className="portrait-accent-img"
-                loading="lazy"
-              />
-            </div>
           </div>
 
           <div
