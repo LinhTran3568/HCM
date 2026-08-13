@@ -1246,7 +1246,38 @@ h1, h2, h3, h4 {
 
 .transform-node-card {
   position: relative;
-  padding: 38px 30px;
+  padding: 0;
+}
+
+/* Image header band on each transformation card */
+.node-card-image {
+  position: relative;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 6px 6px 0 0;
+}
+
+.node-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease-out);
+  filter: contrast(110%) saturate(115%);
+}
+
+.transform-node-card:hover .node-card-image img {
+  transform: scale(1.05);
+}
+
+.node-card-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(20, 19, 17, 0.48) 0%, rgba(20, 19, 17, 0.08) 60%, transparent 80%);
+}
+
+.node-card-body {
+  padding: 26px 30px 34px;
 }
 
 .node-num-tag {
@@ -1323,7 +1354,38 @@ h1, h2, h3, h4 {
 }
 
 .uv-card-panel {
-  padding: 38px;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Image header band on each pros/cons comparison card */
+.uv-card-image {
+  position: relative;
+  height: 215px;
+  overflow: hidden;
+}
+
+.uv-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease-out);
+  filter: contrast(110%) saturate(115%);
+}
+
+.uv-card-panel:hover .uv-card-image img {
+  transform: scale(1.04);
+}
+
+.uv-card-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(20, 19, 17, 0.5) 0%, rgba(20, 19, 17, 0.06) 55%, transparent 78%);
+}
+
+.uv-card-body {
+  padding: 32px 38px 38px;
 }
 
 .uv-panel-name {

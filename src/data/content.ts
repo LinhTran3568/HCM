@@ -164,16 +164,22 @@ export const GIA_DINH = {
       num: '01',
       title: 'GIA ĐÌNH TRUYỀN THỐNG',
       desc: 'Đại gia đình đa thế hệ, tập trung phụng dưỡng & gắn kết nề nếp',
+      image: '/images/gia-dinh-truyen-thong.jpg',
+      imageAlt: 'Gia đình Việt Nam quây quần gói bánh tét ngày Tết',
     },
     {
       num: '02',
       title: 'GIA ĐÌNH HẠT NHÂN',
       desc: 'Cặp vợ chồng độc lập, linh hoạt thích nghi đời sống hiện đại',
+      image: '/images/gia-dinh-hat-nhan.jpg',
+      imageAlt: 'Đám cưới Việt Nam trên đường quê',
     },
     {
       num: '03',
       title: 'GIÁ TRỊ CỐT LÕI',
       desc: 'Chữ hiếu, trách nhiệm & tình thân không hề mất đi',
+      image: '/images/gia-tri-cot-loi.jpg',
+      imageAlt: 'Gia đình sum vầy, gắn kết các thế hệ',
     },
   ],
   timelineValues: ['HIẾU THẢO', 'TRÁCH NHIỆM', 'YÊU THƯƠNG', 'GẮN KẾT'],
@@ -192,11 +198,15 @@ export const GIA_DINH = {
   uv: [
     {
       name: 'Gia đình truyền thống',
+      image: '/images/ban-tho.jpg',
+      imageAlt: 'Bàn thờ gia tiên trong gia đình Việt Nam',
       good: ['Gắn kết và hỗ trợ nhau', 'Chăm sóc người già thuận lợi', 'Gìn giữ phong tục, tập quán'],
       bad: ['Dễ xung đột giữa các thế hệ', 'Ít không gian riêng tư', 'Áp lực duy trì nề nếp đại gia đình'],
     },
     {
       name: 'Gia đình hạt nhân',
+      image: '/images/dam-cuoi-ho-guom.jpg',
+      imageAlt: 'Đám cưới tập thể tại hồ Gươm, Hà Nội',
       good: ['Vợ chồng tự lập, tự chủ', 'Không gian riêng tư, linh hoạt', 'Giảm mâu thuẫn thế hệ'],
       bad: ['Dễ giảm kết nối với ông bà, họ hàng', 'Áp lực chăm sóc gia đình nhỏ lớn hơn', 'Có nguy cơ xa cách cha mẹ già'],
     },
@@ -295,6 +305,10 @@ export const REFERENCES = {
     'Ảnh "Nhà cổ Tấn Ký, Hội An" (P. Hughes, CC BY 4.0) — Wikimedia Commons.',
     'Ảnh "Hoa sen" (Hong Zhang, CC0) và "Cánh đồng lúa chín" (Basile Morin, CC BY-SA 4.0) — Wikimedia Commons.',
     'Ảnh tư liệu Chủ tịch Hồ Chí Minh: chân dung (1946), Bác Hồ giao lưu thiếu nhi (thập niên 1950) và Bác Hồ xem bóng đá tại Hà Nội (1958) — Wikimedia Commons (Public domain).',
+    'Ảnh "Gia đình Việt Nam quây quần gói bánh tét ngày Tết" (This is Thảo, CC BY-SA 4.0) — Wikimedia Commons.',
+    'Ảnh "Đám cưới trên đường quê" (Lê Tấn Lộc, CC BY-SA 3.0) — Wikimedia Commons.',
+    'Ảnh "Đám cưới tập thể tại hồ Gươm, Hà Nội" (Linhcandng, CC BY-SA 3.0) — Wikimedia Commons.',
+    'Ảnh "Cả nhà — gia đình Việt Nam sum vầy" (Nguyễn Ngọc Lân-Nguyệt, CC BY-SA 4.0) — Wikimedia Commons.',
   ],
 }
 

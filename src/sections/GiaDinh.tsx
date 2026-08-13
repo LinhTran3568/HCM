@@ -53,9 +53,15 @@ export function GiaDinh() {
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.8, delay: i * 0.2, ease: easeOut }}
               >
-                <div className="node-num-tag">{node.num}</div>
-                <h3 className="node-title">{node.title}</h3>
-                <p className="node-desc">{node.desc}</p>
+                <div className="node-card-image">
+                  <img src={node.image} alt={node.imageAlt} loading="lazy" />
+                  <div className="node-card-image-overlay" />
+                </div>
+                <div className="node-card-body">
+                  <div className="node-num-tag">{node.num}</div>
+                  <h3 className="node-title">{node.title}</h3>
+                  <p className="node-desc">{node.desc}</p>
+                </div>
                 {i < GIA_DINH.timeline.length - 1 && (
                   <div className="node-down-arrow" aria-hidden="true">
                     <span>↓</span>
@@ -81,28 +87,34 @@ export function GiaDinh() {
         <div className="uv-comparison-grid">
           {GIA_DINH.uv.map((col, i) => (
             <Reveal key={col.name} className="uv-card-panel book-card-frame" delay={i * 120}>
-              <h3 className="uv-panel-name">{col.name}</h3>
-              <div className="uv-group-box">
-                <h4 className="uv-heading uv-heading--good">ƯU ĐIỂM</h4>
-                <ul className="uv-list-items">
-                  {col.good.map((item, j) => (
-                    <li key={j}>
-                      <span className="good-ic">✓</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="uv-card-image">
+                <img src={col.image} alt={col.imageAlt} loading="lazy" />
+                <div className="uv-card-image-overlay" />
               </div>
-              <div className="uv-group-box">
-                <h4 className="uv-heading uv-heading--bad">THÁCH THỨC / HẠN CHẾ</h4>
-                <ul className="uv-list-items">
-                  {col.bad.map((item, j) => (
-                    <li key={j}>
-                      <span className="bad-ic">!</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="uv-card-body">
+                <h3 className="uv-panel-name">{col.name}</h3>
+                <div className="uv-group-box">
+                  <h4 className="uv-heading uv-heading--good">ƯU ĐIỂM</h4>
+                  <ul className="uv-list-items">
+                    {col.good.map((item, j) => (
+                      <li key={j}>
+                        <span className="good-ic">✓</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="uv-group-box">
+                  <h4 className="uv-heading uv-heading--bad">THÁCH THỨC / HẠN CHẾ</h4>
+                  <ul className="uv-list-items">
+                    {col.bad.map((item, j) => (
+                      <li key={j}>
+                        <span className="bad-ic">!</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </Reveal>
           ))}
