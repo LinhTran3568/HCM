@@ -122,7 +122,7 @@ export const GIAO_TRINH = {
       imageAlt: 'Chân dung Chủ tịch Hồ Chí Minh (1946)',
       imageCaption: 'Ảnh tư liệu — Chân dung Chủ tịch Hồ Chí Minh (1946) (Wikimedia Commons, public domain)',
       quote:
-        '"Con người phải được đặt vào vị trí trung tâm của sự phát triển, nhằm phát huy cao nhất mọi tiềm năng của con người." (tr.154) · "Vì lợi ích mười năm thì phải trồng cây / Vì lợi ích trăm năm thì phải trồng người." (tr.154)',
+        '"Con người phải được đặt vào vị trí trung tâm của sự phát triển, nhằm phát huy cao nhất mọi tiềm năng của con người." (tr.154)',
       apply:
         'Sống riêng giúp vợ chồng tự lập, có không gian để phát triển trách nhiệm với gia đình nhỏ — phù hợp tinh thần phát triển con người. Nhưng nếu bỏ mặc cha mẹ, cắt đứt quan hệ họ hàng thì lại đi ngược giá trị nhân ái, trách nhiệm.',
     },
