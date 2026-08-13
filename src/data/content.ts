@@ -224,9 +224,9 @@ export const O_RIENG = {
       { title: 'Chăm sóc', desc: 'Chăm sóc sức khỏe và hỗ trợ khi cha mẹ cần' },
       { title: 'Trách nhiệm', desc: 'Phụng dưỡng, làm gương về lòng hiếu thảo cho con cái' },
     ],
-    centerImage: '/images/ban-tho.jpg',
-    centerImageAlt: 'Bàn thờ gia tiên trong gia đình Việt Nam',
-    centerCaption: 'Bàn thờ gia tiên (Donald Trung, CC BY-SA 4.0) — Wikimedia Commons',
+    centerImage: '/images/part4-bg.jpg',
+    centerImageAlt: 'Tình cảm gia đình gắn kết',
+    centerCaption: 'Tình cảm gia đình gắn kết',
   },
   values: [
     {
