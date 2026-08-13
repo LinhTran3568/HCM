@@ -278,6 +278,29 @@ h1, h2, h3, h4 {
   filter: drop-shadow(0 0 5px rgba(184, 74, 40, 0.55));
 }
 
+/* ─── Text Letter Hover (site-wide headings) ─────────────────────
+   Each character of a heading lifts one-by-one when hovered.
+   TextLetterHover splits the text into .tlh-char spans and stamps
+   a per-letter --char-i index for the stagger. */
+.tlh-char {
+  display: inline-block;
+  white-space: pre;
+  transform-origin: 50% 100%;
+  transition:
+    transform 0.45s var(--ease-out),
+    color 0.45s ease,
+    text-shadow 0.45s ease;
+  transition-delay: calc(var(--char-i, 0) * 20ms);
+  will-change: transform;
+}
+
+[data-letters]:hover .tlh-char,
+[data-letters]:focus-within .tlh-char {
+  transform: translateY(-0.28em) rotate(1.5deg) scale(1.06);
+  color: var(--terracotta);
+  text-shadow: 0 12px 26px rgba(184, 74, 40, 0.35);
+}
+
 /* ─── Layout Container ────────────────────────────────────────── */
 .container {
   width: min(var(--container), 100% - var(--gutter) * 2);
