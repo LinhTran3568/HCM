@@ -3,10 +3,11 @@ import { useRef } from 'react'
 import { ArrowDown } from 'lucide-react'
 import { HERO, SECTION_IDS } from '../data/content'
 import { scrollToSection } from '../lib/scroll'
+import type { UserChoice } from '../components/intro3d/types'
 
 const easeOut = [0.16, 1, 0.3, 1] as const
 
-export function Hero() {
+export function Hero({ choice }: { choice?: UserChoice | null }) {
   const reduce = useReducedMotion()
   const heroRef = useRef<HTMLElement>(null)
 
@@ -41,6 +42,17 @@ export function Hero() {
         style={reduce ? undefined : { y: heroY, opacity: heroOpacity }}
       >
         <div className="hero-left-column">
+          {choice && (
+            <motion.div
+              className="hero-choice"
+              initial={reduce ? false : { opacity: 0, y: 14 }}
+              animate={reduce ? undefined : { opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.05, ease: easeOut }}
+            >
+              <span>LỰA CHỌN CỦA BẠN</span>
+              <strong>{choice === 'chung' ? 'Ở CHUNG' : 'Ở RIÊNG'}</strong>
+            </motion.div>
+          )}
           <motion.div
             className="hero-badge"
             initial={reduce ? false : { opacity: 0, y: 16 }}

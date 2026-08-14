@@ -1,0 +1,15 @@
+3D Characters used in the "Nếp nhà mới" intro scene
+====================================================
+
+mother.glb / daughter.glb
+  Source: Quaternius — "Woman in Tank Top"
+  Hosted on poly.pizza: https://poly.pizza/m/XqzeZGB7iU
+  License: CC0 1.0 Universal (Public Domain)
+
+husband.glb
+  Source: Quaternius — "Man"
+  Hosted on poly.pizza: https://poly.pizza/m/HMnuH5geEG
+  License: CC0 1.0 Universal (Public Domain)
+
+Recolored materials and vertex data modifications were applied for
+storytelling purposes. CC0 allows free use and modification.
