@@ -1,15 +1,62 @@
-3D Characters used in the "Nếp nhà mới" intro scene
-====================================================
+3D Assets used in the "Nếp nhà mới" intro scene
+================================================
+
+Characters
+----------
 
 mother.glb / daughter.glb
-  Source: Quaternius — "Woman in Tank Top"
+  Source: Quaternius - "Woman in Tank Top"
   Hosted on poly.pizza: https://poly.pizza/m/XqzeZGB7iU
   License: CC0 1.0 Universal (Public Domain)
 
 husband.glb
-  Source: Quaternius — "Man"
+  Source: Quaternius - "Man"
   Hosted on poly.pizza: https://poly.pizza/m/HMnuH5geEG
   License: CC0 1.0 Universal (Public Domain)
+
+Houses
+------
+
+house-trad.glb
+  Source: Quaternius - "House"
+  Hosted on poly.pizza: https://poly.pizza/m/roqiHdrpgc
+  License: CC0 1.0 Universal (Public Domain)
+
+house-modern.glb
+  Source: henry ham - "Modern House"
+  Hosted on poly.pizza: https://poly.pizza/m/d_k2TeZePG6
+  License: CC0 1.0 Universal (Public Domain)
+
+house-town.glb
+  Source: Quaternius - "Building1_Small" (from the "Toon Shops" pack)
+  Hosted on poly.pizza: https://poly.pizza/m/oDP3KmyWvp
+  License: CC0 1.0 Universal (Public Domain)
+
+Trees
+-----
+
+tree-common.glb
+  Source: Quaternius - "CommonTree_1"
+  Hosted on poly.pizza: https://poly.pizza/m/zcHokn2nA6
+  License: CC0 1.0 Universal (Public Domain)
+
+tree-big.glb
+  Source: Quaternius - "Tree_3"
+  Hosted on poly.pizza: https://poly.pizza/m/ebPgeVwEEG
+  License: CC0 1.0 Universal (Public Domain)
+
+Vehicles
+--------
+
+car-sport.glb
+  Source: "Ferrari" sample model (three.js examples, Draco-compressed)
+  https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/models/gltf/ferrari.glb
+  License: MIT
+
+truck.glb
+  Source: "CesiumMilkTruck" sample model (glTF Sample Assets)
+  https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/CesiumMilkTruck/glTF-Binary/CesiumMilkTruck.glb
+  License: KhronosGroup sample assets (MIT-style, see repo LICENSE.md)
 
 Recolored materials and vertex data modifications were applied for
 storytelling purposes. CC0 allows free use and modification.

@@ -1,41 +1,47 @@
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Html, Sparkles, GradientTexture } from '@react-three/drei'
+import { OrbitControls, Html } from '@react-three/drei'
 import * as THREE from 'three'
 import { Character } from './Character'
-import { HousePhoto, Tree, Campfire } from './Houses'
+import { Sky, Sun, Clouds, CitySkyline, TheHucBridge, NgoSon, Flora, Fence, StoneRailing, StreetLamp, Lotus, Boat } from './Scenery'
+import { TradHouseDl, TownHouse, Tree, StraightRoad, RoadVehicle } from './DownloadedModels'
 import type { Phase, UserChoice } from './types'
 
-const HOUSE_HEIGHT = 4.2
-const TRAD_X = -5.4
-const MODERN_X = 5.4
-const HOUSE_Z = -0.6
-
-function SkyDome() {
-  return (
-    <mesh scale={[1, 1, 1]}>
-      <sphereGeometry args={[46, 24, 16]} />
-      <meshBasicMaterial side={THREE.BackSide} fog={false}>
-        <GradientTexture stops={[0, 0.45, 0.58, 1]} colors={['#131b3a', '#6d3352', '#ff9a5e', '#131b3a']} size={512} />
-      </meshBasicMaterial>
-    </mesh>
-  )
-}
+const TRAD_X = -4.4
+const MODERN_X = 4.4
+const HOUSE_Z = -2.1
 
 function Ground() {
   return (
     <group>
-      <mesh position={[0, -0.12, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[60, 60]} />
-        <meshStandardMaterial color="#1c150e" roughness={0.95} />
+      {/* mặt nước hồ */}
+      <mesh position={[0, -0.18, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[110, 110]} />
+        <meshStandardMaterial color="#21755a" roughness={0.22} metalness={0.06} />
       </mesh>
-      <mesh position={[0, -0.1, 0]}>
-        <cylinderGeometry args={[7.5, 7.8, 0.2, 40]} />
-        <meshStandardMaterial color="#5c4a33" roughness={0.95} />
+      {/* bờ xa (đảo Hà Nội) */}
+      <mesh position={[0, -0.05, -42]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[150, 30]} />
+        <meshStandardMaterial color="#5d7e47" roughness={1} />
       </mesh>
-      <mesh position={[0, 0.012, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[13, 2.6]} />
-        <meshStandardMaterial color="#6d5a41" roughness={0.9} />
+      {/* đảo đá giữa hồ (sân trước hai ngôi nhà) */}
+      <mesh position={[0, -0.175, 0]}>
+        <cylinderGeometry args={[10.5, 10.8, 0.35, 48]} />
+        <meshStandardMaterial color="#d8d1c2" roughness={0.95} />
+      </mesh>
+      {/* bờ kè đá quanh đảo */}
+      <mesh position={[0, 0.045, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <ringGeometry args={[10.42, 10.66, 48]} />
+        <meshStandardMaterial color="#bfae90" roughness={1} />
+      </mesh>
+      {/* lối đi đá */}
+      <mesh position={[-6, 0.02, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[2.2, 3.2]} />
+        <meshStandardMaterial color="#cbc4b4" roughness={1} />
+      </mesh>
+      <mesh position={[6, 0.02, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[2.2, 3.2]} />
+        <meshStandardMaterial color="#cbc4b4" roughness={1} />
       </mesh>
     </group>
   )
@@ -67,7 +73,7 @@ function Characters({ phase, choice }: { phase: Phase; choice: UserChoice | null
   const chung = choice === 'chung'
   const houseX = chung ? TRAD_X : MODERN_X
 
-  const motherX = chung ? TRAD_X - 0.5 : TRAD_X - 0.5
+  const motherX = TRAD_X - 0.5
   const daughterX = chung ? TRAD_X + 0.5 : MODERN_X - 0.5
   const husbandX = chung ? TRAD_X + 1.5 : MODERN_X + 0.5
 
@@ -144,16 +150,16 @@ function CameraRig({ phase }: { phase: Phase }) {
   return (
     <OrbitControls
       makeDefault
-      target={[0, 1, 0]}
+      target={[0, 1.2, 0]}
       enablePan={false}
       enableDamping
       dampingFactor={0.08}
       minDistance={4}
-      maxDistance={11}
-      minPolarAngle={0.55}
-      maxPolarAngle={1.4}
+      maxDistance={18}
+      minPolarAngle={0.5}
+      maxPolarAngle={1.45}
       autoRotate={settled}
-      autoRotateSpeed={0.7}
+      autoRotateSpeed={0.5}
     />
   )
 }
@@ -162,7 +168,7 @@ export function CharScene({ phase, choice }: { phase: Phase; choice: UserChoice 
   return (
     <Canvas
       shadows
-      camera={{ position: [0, 2, 6.9], fov: 42 }}
+      camera={{ position: [0, 3, 9.6], fov: 46 }}
       dpr={[1, 1.5]}
       gl={{
         antialias: true,
@@ -171,37 +177,99 @@ export function CharScene({ phase, choice }: { phase: Phase; choice: UserChoice 
       }}
       performance={{ min: 0.5 }}
     >
-      <SkyDome />
-      <ambientLight intensity={0.35} />
-      <hemisphereLight args={['#ffd9a8', '#2c2118', 0.7]} />
+      <Sky />
+      <color attach="background" args={['#cfe6f2']} />
+      <fog attach="fog" args={['#cfe6f2', 24, 62]} />
+      <Sun />
+
+      <ambientLight intensity={0.55} />
+      <hemisphereLight args={['#bfe3ff', '#7c8a6a', 0.85]} />
       <directionalLight
-        position={[-6, 9, 5]}
-        intensity={1.5}
-        color="#ffb977"
+        position={[7, 11, 9]}
+        intensity={1.7}
+        color="#fff3dd"
         castShadow
         shadow-mapSize={[1024, 1024]}
         shadow-bias={-0.0004}
       />
-      <directionalLight position={[5, 3, -4]} intensity={0.4} color="#7f8fd0" />
+      <directionalLight position={[-8, 5, -5]} intensity={0.4} color="#d9ecff" />
 
+      <Clouds />
+      <CitySkyline />
       <Ground />
-      <Suspense fallback={null}>
-        <HousePhoto url="/images/nha-tan-ky-3d.jpg" position={[TRAD_X, HOUSE_HEIGHT / 2, HOUSE_Z]} height={HOUSE_HEIGHT} />
-        <HousePhoto url="/images/modern-house-dusk-3d.jpg" position={[MODERN_X, HOUSE_HEIGHT / 2, HOUSE_Z]} height={HOUSE_HEIGHT} />
-      </Suspense>
-      <Tree position={[-7.1, 0, -1.3]} scale={1.4} />
-      <Tree position={[7.1, 0, -1.3]} scale={1.3} />
-      <Tree position={[0, 0, -4.1]} scale={1.7} />
-      <Campfire />
+      <NgoSon />
+      <TheHucBridge />
 
-      <pointLight position={[-5.2, 2, 2.6]} color="#ffb066" intensity={7} distance={10} decay={2} />
-      <pointLight position={[5.2, 2, 2.4]} color="#ffc58f" intensity={6} distance={9} decay={2} />
+      <Suspense fallback={null}>
+        <TradHouseDl position={[TRAD_X, 0, HOUSE_Z]} rotationY={-0.06} height={3.2} />
+        <TownHouse position={[MODERN_X, 0, HOUSE_Z]} rotationY={0.05} height={4.0} />
+
+      <Fence position={[TRAD_X, 0.03, 1.05]} />
+      <Fence position={[MODERN_X, 0.03, 1.05]} />
+
+      {/* cây xanh quanh đảo — ít, không che tầm nhìn */}
+      <Tree position={[-8.9, 0.03, -2.8]} rotationY={0.3} height={3.1} />
+      <Tree position={[8.9, 0.03, -2.9]} rotationY={-0.25} height={2.9} />
+      <Tree position={[-6.8, 0.03, -8.2]} rotationY={0.1} height={3.4} big />
+      <Tree position={[6.9, 0.03, -8.3]} rotationY={-0.1} height={3.2} big />
+      <Tree position={[-9.6, 0.03, 2.1]} rotationY={0.2} height={2.8} />
+      <Tree position={[9.7, 0.03, 2.0]} rotationY={-0.2} height={2.7} />
+      <Tree position={[-3.4, 0.03, 9.0]} rotationY={-0.15} height={2.9} />
+      <Tree position={[3.6, 0.03, 9.1]} rotationY={0.15} height={2.8} />
+
+      {/* nhà phố cổ bên kia hồ */}
+      <TownHouse position={[-17.5, 0.03, -32]} rotationY={0.1} height={4.4} />
+      <TownHouse position={[-13, 0.03, -31.5]} rotationY={-0.05} height={3.9} />
+      <TownHouse position={[-8.5, 0.03, -33]} rotationY={0.12} height={4.6} />
+      <TownHouse position={[8.6, 0.03, -32.5]} rotationY={-0.12} height={4.5} />
+      <TownHouse position={[13.2, 0.03, -31]} rotationY={0.05} height={3.9} />
+      <TownHouse position={[17.8, 0.03, -32.5]} rotationY={-0.1} height={4.4} />
+
+      {/* hàng cây bên bờ xa */}
+      <Tree position={[-21, 0.0, -36]} rotationY={0} height={5.2} big />
+      <Tree position={[-15.5, 0.0, -37]} rotationY={0} height={4.8} big />
+      <Tree position={[-5.5, 0.0, -36]} rotationY={0} height={5.0} big />
+      <Tree position={[6, 0.0, -37]} rotationY={0} height={4.9} big />
+      <Tree position={[15.5, 0.0, -36]} rotationY={0} height={5.1} big />
+      <Tree position={[21.5, 0.0, -37]} rotationY={0} height={5.2} big />
+
+      {/* đường bờ hồ nối vào thành phố */}
+      <StraightRoad z={-28} length={120} />
+      <RoadVehicle url="/models/car-sport.glb" length={4.2} x={-35} z={-28} speed={5} dir={1} range={55} yaw={Math.PI} />
+      <RoadVehicle url="/models/truck.glb" length={4.4} x={20} z={-28} speed={4} dir={-1} range={55} />
+      </Suspense>
+
+      {/* lan can đá quanh bờ */}
+      <StoneRailing />
+
+      {/* cột đèn trước hai ngôi nhà */}
+      <StreetLamp position={[-6, 0.03, 1.5]} rotationY={0} />
+      <StreetLamp position={[6, 0.03, 1.5]} rotationY={0} />
+
+      {/* hoa sen trên mặt nước */}
+      <Lotus position={[5.2, -0.16, -11]} />
+      <Lotus position={[-5.4, -0.16, -12]} />
+      <Lotus position={[0.5, -0.16, -11.5]} />
+      <Lotus position={[10.8, -0.16, -5]} />
+      <Lotus position={[-10.8, -0.16, -4]} />
+      <Lotus position={[10.6, -0.16, 4.5]} />
+      <Lotus position={[-10.7, -0.16, 5]} />
+      <Lotus position={[4, -0.16, 12]} />
+      <Lotus position={[-4, -0.16, 12.4]} />
+      <Lotus position={[8.5, -0.16, 9.5]} />
+
+      {/* thuyền gỗ trên hồ */}
+      <Boat position={[13.5, -0.18, -17]} rotationY={0.4} />
+      <Boat position={[-13.8, -0.18, -18]} rotationY={-0.5} />
+      <Boat position={[15.5, -0.18, 8]} rotationY={2.2} />
+      <Boat position={[-15, -0.18, 9]} rotationY={-2.4} />
+
+      <Flora />
 
       <Suspense fallback={null}>
         <Characters phase={phase} choice={choice} />
       </Suspense>
 
-      <Sparkles count={60} scale={[9, 3.5, 4]} position={[0, 2, 0]} size={2.2} speed={0.25} opacity={0.5} color="#ffd9a0" />
       <CameraRig phase={phase} />
     </Canvas>
   )
